@@ -1,9 +1,12 @@
 const myLibrary = [];
 
+let currentBooks = 0;
+
 function Book( title , author , pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.index = currentBooks;
 }
 
 function addBookToLibrary( obj ) {
@@ -12,8 +15,8 @@ function addBookToLibrary( obj ) {
 
 let tableBody = document.querySelector('tbody');
 
-function displayTable( array ){
-    for( let i = 0; i < array.length ; i++ ){
+function displayTable( array, index = 0 ){
+    for( let i = index; i < array.length ; i++ ){
         let newRow = document.createElement('tr');
         newRow.className = 'row';
 
@@ -45,3 +48,21 @@ addBookToLibrary(moby);
 
 displayTable( myLibrary);
 
+let button = document.querySelector('button');
+
+let titleInput = document.querySelector('#bookTitle');
+let authorInput = document.querySelector('#bookAuthor');
+let pagesInput = document.querySelector('#bookPages');
+
+button.addEventListener('click', () =>{
+    console.log(titleInput.value);
+    console.log(authorInput.value);
+    console.log(pagesInput.value);
+    
+    let obj = new Book(titleInput.value, authorInput.value, pagesInput.value);
+    currentBooks++;
+
+    addBookToLibrary(obj);
+
+    displayTable(myLibrary, currentBooks);
+});
