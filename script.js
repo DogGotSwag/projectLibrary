@@ -13,21 +13,21 @@ function addBookToLibrary( obj ) {
   myLibrary.push( obj );
 }
 
-let tableBody = document.querySelector('tbody');
+let tableBody = document.querySelector('.tableBody');
 
 function displayTable( array, index = 0 ){
     for( let i = index; i < array.length ; i++ ){
-        let newRow = document.createElement('tr');
+        let newRow = document.createElement('div');
         newRow.className = 'row';
 
-        let title = document.createElement('th');
+        let title = document.createElement('div');
         title.innerText = array[i].title;
 
-        let author = document.createElement('td');
-        author.setAttribute('colspan', '2');
+        let author = document.createElement('div');
         author.innerText = array[i].author;
+        author.className = 'author'
 
-        let pages = document.createElement('td');
+        let pages = document.createElement('div');
         pages.innerText = array[i].pages;
 
         newRow.appendChild(title);
