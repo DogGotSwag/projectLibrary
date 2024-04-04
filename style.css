@@ -19,6 +19,7 @@ body{
     padding: 12px;
     border-radius: 10px;
     height: auto;
+    padding-left: 34px;
 }
 
 .table{
@@ -56,6 +57,18 @@ body{
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr 2fr 1fr;
+    position: relative;
+}
+
+.remove{
+    position: absolute;
+    left:-32px;
+    top: 3px;
+    border: 2px solid black;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    border-radius: 3px;
 }
 
 .head div, .tableBody div{
@@ -101,7 +114,7 @@ input{
     padding: 2px 3px
 }
 
-button{
+.addButton{
     border: 2px black solid;
     padding: 5px 10px;
     border-radius: 5px;

@@ -17,10 +17,16 @@ let tableBody = document.querySelector('.tableBody');
 
 function displayTable( array, index = 0 ){
     for( let i = index; i < array.length ; i++ ){
+
+        let removeButton = document.createElement('button');
+        removeButton.innerText = '✖';
+        removeButton.className = 'remove';
+
         let newRow = document.createElement('div');
         newRow.className = 'row';
 
         let title = document.createElement('div');
+        title.className = 'title';
         title.innerText = array[i].title;
 
         let author = document.createElement('div');
@@ -29,6 +35,8 @@ function displayTable( array, index = 0 ){
 
         let pages = document.createElement('div');
         pages.innerText = array[i].pages;
+
+        newRow.appendChild(removeButton);
 
         newRow.appendChild(title);
         newRow.appendChild(author);
@@ -48,19 +56,21 @@ addBookToLibrary(moby);
 
 displayTable( myLibrary);
 
-let button = document.querySelector('button');
+let button = document.querySelector('.addButton');
 
 let titleInput = document.querySelector('#bookTitle');
 let authorInput = document.querySelector('#bookAuthor');
 let pagesInput = document.querySelector('#bookPages');
 
 button.addEventListener('click', () =>{
-    console.log(titleInput.value);
-    console.log(authorInput.value);
-    console.log(pagesInput.value);
+    
     
     let obj = new Book(titleInput.value, authorInput.value, pagesInput.value);
     currentBooks++;
+
+    titleInput.value = '';
+    authorInput.value = '';
+    pagesInput.value = '';
 
     addBookToLibrary(obj);
 
