@@ -15,46 +15,74 @@ body{
 .main{
     background-color: rgb(205, 196, 196);
     width: 80%;
-    height: 400px;
+    min-height: 400px;
     padding: 12px;
     border-radius: 10px;
     height: auto;
 }
 
-table{
+.table{
     border: 2px solid black;
     width: 100%;
     border-radius: 5px;
     margin-bottom: 12px;
 }
 
-caption {
-    margin-bottom: 10px;
-}
-
-td{
+.table div{
     text-align: center;
 }
-thead th{
+
+
+
+.table p {
+    text-align: center;
+    padding: 10px;
     font-size: 20px;
-    text-decoration: underline;
-}
-
-.row th{
-    font-weight: 600;
-}
-
-td, th{
-    border-bottom: 2px solid black;
-    border-right: 2px solid black;
     margin: 0;
+}
+
+.head{
+    border-top: 2px solid black;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.head, .row{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.head div, .tableBody div{
+    border-bottom: 2px solid black;
     height: 25px;
+}
+
+.tableBody .row:last-child{
+    border: none;
+}
+
+.row div, .head div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.author{
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 }
 
 form div{
     margin-bottom: 8px;
     height: 30px;
 }
+
 
 label, input, button{
     appearance: none;
