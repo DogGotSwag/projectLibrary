@@ -54,6 +54,12 @@ function displayTable( array ){
 
         tableBody.appendChild(frag);
 
+
+        removeButton.addEventListener('click', ( event )=>{
+            let index = removeButton.classList[1].split('_')[1];
+            removeBook( index );
+        });
+
     }
 }
 
@@ -80,4 +86,15 @@ button.addEventListener('click', () =>{
     addBookToLibrary(obj);
 
     displayTable(myLibrary);
+    console.log( myLibrary);
 });
+
+
+
+function removeBook( index){
+    myLibrary.splice( index, 1);
+    displayTable(myLibrary);
+
+    console.log( myLibrary);
+}
+
