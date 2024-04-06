@@ -26,7 +26,7 @@ function displayTable( array ){
 
         let removeButton = document.createElement('button');
         removeButton.innerText = '✖';
-        removeButton.className = 'remove';
+        removeButton.className = `remove book_${i}`;
 
         let newRow = document.createElement('div');
         newRow.className = 'row';
