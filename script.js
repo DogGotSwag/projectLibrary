@@ -1,10 +1,11 @@
 const myLibrary = [];
 
 
-function Book( title , author , pages , index) {
+function Book( title , author , pages , index , read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = read;
     this.index = index;
 }
 
