@@ -56,6 +56,9 @@ function displayTable( array ){
 
 
         removeButton.addEventListener('click', ( event )=>{
+            let thisRow = event.target.parentNode;
+            tableBody.removeChild( thisRow );
+
             let index = removeButton.classList[1].split('_')[1];
             removeBook( index );
         });
@@ -93,8 +96,5 @@ button.addEventListener('click', () =>{
 
 function removeBook( index){
     myLibrary.splice( index, 1);
-    displayTable(myLibrary);
-
-    console.log( myLibrary);
 }
 
