@@ -1,12 +1,11 @@
 const myLibrary = [];
 
-let currentBooks = 0;
 
-function Book( title , author , pages) {
+function Book( title , author , pages , index) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.index = currentBooks;
+    this.index = index;
 }
 
 function addBookToLibrary( obj ) {
@@ -15,8 +14,15 @@ function addBookToLibrary( obj ) {
 
 let tableBody = document.querySelector('.tableBody');
 
-function displayTable( array, index = 0 ){
-    for( let i = index; i < array.length ; i++ ){
+function displayTable( array ){
+    let childrenArray = Array.from(tableBody.childNodes);
+    console.log();
+    for( let i = 0; i < childrenArray.length; i++){
+        tableBody.removeChild(childrenArray[i]);
+
+    }
+
+    for( let i = 0; i < array.length ; i++ ){
 
         let removeButton = document.createElement('button');
         removeButton.innerText = '✖';
@@ -51,7 +57,7 @@ function displayTable( array, index = 0 ){
     }
 }
 
-let moby = new Book('Moby Dick', "Herman Melville", 624);
+let moby = new Book('Moby Dick', "Herman Melville", 624, myLibrary.length );
 addBookToLibrary(moby);
 
 displayTable( myLibrary);
@@ -66,7 +72,6 @@ button.addEventListener('click', () =>{
     
     
     let obj = new Book(titleInput.value, authorInput.value, pagesInput.value);
-    currentBooks++;
 
     titleInput.value = '';
     authorInput.value = '';
@@ -74,5 +79,5 @@ button.addEventListener('click', () =>{
 
     addBookToLibrary(obj);
 
-    displayTable(myLibrary, currentBooks);
+    displayTable(myLibrary);
 });
