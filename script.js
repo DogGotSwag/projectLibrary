@@ -43,9 +43,20 @@ function displayTable( array ){
         pages.innerText = array[i].pages;
 
         let read = document.createElement('div');
-        console.log( array[i].read);
         read.innerText = array[i].read == true ? 'read': "unread" ;
         read.className = 'read';
+
+        let haveReadButton = document.createElement('button');
+        haveReadButton.innerText = 'Change';
+
+        haveReadButton.addEventListener('click', () => {
+
+            let index = removeButton.classList[1].split('_')[1];
+            myLibrary[index].read = array[i].read == true ? false: true ;
+            displayTable(myLibrary);
+        });
+
+        read.appendChild(haveReadButton);
 
         newRow.appendChild(removeButton);
 
