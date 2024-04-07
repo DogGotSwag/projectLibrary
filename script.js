@@ -1,12 +1,11 @@
 const myLibrary = [];
 
 
-function Book( title , author , pages , index , read) {
+function Book( title , author , pages ,read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.index = index;
 }
 
 function addBookToLibrary( obj ) {
@@ -43,11 +42,17 @@ function displayTable( array ){
         let pages = document.createElement('div');
         pages.innerText = array[i].pages;
 
+        let read = document.createElement('div');
+        console.log( array[i].read);
+        read.innerText = array[i].read == true ? 'read': "unread" ;
+        read.className = 'read';
+
         newRow.appendChild(removeButton);
 
         newRow.appendChild(title);
         newRow.appendChild(author);
         newRow.appendChild(pages);
+        newRow.appendChild(read)
         
 
         let frag = new DocumentFragment();
@@ -67,7 +72,7 @@ function displayTable( array ){
     }
 }
 
-let moby = new Book('Moby Dick', "Herman Melville", 624, myLibrary.length );
+let moby = new Book('Moby Dick', "Herman Melville", 624, true );
 addBookToLibrary(moby);
 
 displayTable( myLibrary);
@@ -77,15 +82,17 @@ let button = document.querySelector('.addButton');
 let titleInput = document.querySelector('#bookTitle');
 let authorInput = document.querySelector('#bookAuthor');
 let pagesInput = document.querySelector('#bookPages');
+let readInput = document.querySelector('#bookRead');
 
 button.addEventListener('click', () =>{
     
     
-    let obj = new Book(titleInput.value, authorInput.value, pagesInput.value);
+    let obj = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
 
     titleInput.value = '';
     authorInput.value = '';
     pagesInput.value = '';
+    readInput.value = '';
 
     addBookToLibrary(obj);
 

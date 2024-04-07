@@ -54,10 +54,14 @@ body{
     font-size: 14px;
 }
 
+.read{
+    border-left: 2px solid black;
+}
+
 .head, .row{
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
     position: relative;
 }
 
