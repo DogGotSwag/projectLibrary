@@ -56,6 +56,9 @@ body{
 
 .read{
     border-left: 2px solid black;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
 }
 
 .head, .row{
@@ -76,9 +79,14 @@ body{
     border-radius: 3px;
 }
 
-.head div, .tableBody div{
+.tableBody div{
     border-bottom: 2px solid black;
-    height: 25px;
+    height: 27px;
+}
+
+.head div{
+    height: 35px;
+    border-bottom: 2px solid black;
 }
 
 .tableBody .row:last-child{
