@@ -9,7 +9,8 @@ html, body{
 body{
     display: grid;
     justify-items: center;
-    align-items: center;
+    align-items: start;
+    margin-top: 25px;
 }
 
 .main{
