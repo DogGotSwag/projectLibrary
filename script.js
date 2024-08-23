@@ -91,6 +91,27 @@ let pagesInput = document.querySelector("#bookPages");
 let readInput = document.querySelector("#bookRead");
 
 button.addEventListener("click", () => {
+  if (titleInput.validity.valueMissing) {
+    titleInput.setCustomValidity("Please fill out title");
+    titleInput.reportValidity();
+    return;
+  }
+  if (authorInput.validity.valueMissing) {
+    authorInput.setCustomValidity("Please fill out author name");
+    authorInput.reportValidity();
+    return;
+  }
+  if (pagesInput.validity.valueMissing) {
+    pagesInput.setCustomValidity("Please fill in how many pages");
+    pagesInput.reportValidity();
+    return;
+  }
+  if (readInput.validity.valueMissing) {
+    readInput.setCustomValidity("Please fill in read/unread");
+    readInput.reportValidity();
+    return;
+  }
+
   let obj = new Book(
     titleInput.value,
     authorInput.value,
@@ -106,7 +127,6 @@ button.addEventListener("click", () => {
   addBookToLibrary(obj);
 
   displayTable(myLibrary);
-  console.log(myLibrary);
 });
 
 function removeBook(index) {
